@@ -25,7 +25,7 @@ class AddComplaint extends FormRequest
     {
         return [
             'complaint_subject'=>'required|max:255',
-            'complaint_text'=>'required|max:500',
+            'complaint_text'=>'required',
         ];
     }
 }

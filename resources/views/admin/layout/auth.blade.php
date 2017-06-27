@@ -118,7 +118,6 @@
             /*gives sidebar width/height*/
             nav.sidebar {
                 width: 200px;
-                height: 100%;
                 margin-left: -160px;
                 float: left;
                 z-index: 8000;
@@ -241,6 +240,9 @@
 
                         <ul class="dropdown-menu" role="menu">
                             <li>
+                                <a href="{{route('change-password')}}">Change Password</a>
+                            </li>
+                            <li>
                                 <a href="{{ url('/admin/logout') }}"
                                    onclick="event.preventDefault();
                                                  document.getElementById('logout-form').submit();">
@@ -251,9 +253,6 @@
                                       style="display: none;">
                                     {{ csrf_field() }}
                                 </form>
-                            </li>
-                            <li>
-                                <a href="{{route('change-password')}}">Change Password</a>
                             </li>
                         </ul>
                     </li>

@@ -25,7 +25,6 @@
                         <th>Password</th>
                         <td>: {{$data->password}}</td>
                     </tr>
-                    @endif
                     <tr>
                         <th>flat No</th>
                         <td>: {{$data->flat_no}}</td>
