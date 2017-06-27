@@ -194,7 +194,7 @@
                                                     <li class="comment user-comment">
                                                         <div class="info">
                                                             <a href="#">
-                                                                Admin
+                                                                {{$response_detail->admin['first_name']." ".$response_detail->admin['last_name']}}
                                                             </a>
                                                             <span>{{ time_ago($response_detail->created_at)}}</span></div>
                                                         <a href="#"
@@ -208,7 +208,7 @@
                                                 @endif
                                                 @if($response_detail->is_response==0)
                                                     <li class="comment user-comment" style="margin-left: 135px;">
-                                                        <div class="info"><a href="#">User</a>
+                                                        <div class="info"><a href="#">{{$response_detail->user['first_name']." ".$response_detail->user['last_name']}}</a>
                                                             <span>{{ time_ago($response_detail->created_at)}}</span></div>
                                                         <a href="http://localhost-ast-23/Laravel%20Project/Laravel_blog/public/show-user-profile/19"
                                                            class="avatar"><img
@@ -226,7 +226,7 @@
                                                     {{ csrf_field() }}
                                                     <input type="hidden" name="complaint_id"
                                                            value="{{$complaint_detail->complaints_id}}">
-                                                    <input type="hidden" name="user_id" value="1">
+                                                    <input type="hidden" name="user_id" value="{{Auth::user()->id}}">
                                                     <textarea name="response_text" rows="3" cols="85"
                                                               required placeholder="Write your reply here"></textarea>
                                                     <div>

@@ -28,9 +28,7 @@ class ResponseController extends Controller
         $response_data = $request->except('_token', 'comment_submit');
         $response_data['is_response'] = 1;
         $response_data['create_by'] = 1;
-
         $complain_data = complaints::with('user')->where('complaints_id', $response_data['complaint_id'])->first();
-
         $result = $this->responseRepositoryInterface->store($response_data);
 
         $user_email = $complain_data['user']->email;

@@ -14,4 +14,12 @@ class Response extends Model
     {
         return $this->belongsTo(complaints::class,'complaints_id','complaint_id');
     }
+    public function admin()
+    {
+        return $this->belongsTo(Admin::class,'user_id','id');
+    }
+    public function user()
+    {
+        return $this->belongsTo(User::class,'user_id','id');
+    }
 }

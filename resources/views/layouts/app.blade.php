@@ -54,6 +54,7 @@
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
                                aria-expanded="false">
+                                    <span class="glyphicon glyphicon-user"></span>
                                 {{ Auth::user()->first_name }} <span class="caret"></span>
                             </a>
 

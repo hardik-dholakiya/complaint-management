@@ -18,12 +18,12 @@ class ComplaintRepository implements ComplaintRepositoryInterface
     }
     public function getall()
     {
-        $complaint_list = $this->complaint->with(array('user', 'responses'))->orderBy('created_at', 'desc')->get();
+        $complaint_list = $this->complaint->with(array('user', 'responses','responses.admin','responses.user'))->orderBy('created_at', 'desc')->get();
         return$complaint_list;
     }
     public function getByUser($user_id)
     {
-        $complaint_list = $this->complaint->with(array('responses'))->where('user_id', $user_id)->where('create_by', '==', 0)->orderBy('created_at', 'desc')->get();
+        $complaint_list = $this->complaint->with(array('responses','responses.admin','responses.user'))->where('user_id', $user_id)->where('create_by', '==', 0)->orderBy('created_at', 'desc')->get();
         return $complaint_list;
     }
     public function store($complaints_data)

@@ -275,7 +275,6 @@
                                             <li><a href="#">5</a></li>
                                             <li><a href="#"><span class="glyphicon glyphicon-chevron-right"></span></a></li>
                                         </ul>
-
         </div>
         --}}
             </div>

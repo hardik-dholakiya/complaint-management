@@ -12,8 +12,6 @@
 
     <!-- Styles -->
     <link href="{{asset('css/app.css')}}" rel="stylesheet">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <!-- Scripts -->
     <script>
         window.Laravel = <?php echo json_encode([
             'csrfToken' => csrf_token(),
@@ -235,6 +233,7 @@
                 @if (Auth::guard('admin')->user())
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                            <span class="glyphicon glyphicon-user"></span>
                             {{ Auth::guard('admin')->user()->first_name}} <span class="caret"></span>
                         </a>
 

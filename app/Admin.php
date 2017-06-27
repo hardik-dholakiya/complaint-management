@@ -39,4 +39,9 @@ class Admin extends Authenticatable
     {
         $this->notify(new AdminResetPassword($token));
     }
+    public function responses()
+    {
+        return $this->hasMany(Response::class,'user_id','id');
+    }
+
 }
