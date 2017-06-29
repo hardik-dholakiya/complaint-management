@@ -2,7 +2,7 @@
 namespace App\Repository;
 /**
  * Created by PhpStorm.
- * User: root
+ * User: Dholakiya Hardik
  * Date: 26/6/17
  * Time: 11:55 AM
  */
@@ -18,7 +18,7 @@ class ComplaintRepository implements ComplaintRepositoryInterface
     }
     public function getall()
     {
-        $complaint_list = $this->complaint->with(array('user', 'responses','responses.admin','responses.user'))->orderBy('created_at', 'desc')->get();
+        $complaint_list = $this->complaint->with(array('user','admin', 'responses','responses.admin','responses.user'))->orderBy('created_at', 'desc')->get();
         return$complaint_list;
     }
     public function getByUser($user_id)

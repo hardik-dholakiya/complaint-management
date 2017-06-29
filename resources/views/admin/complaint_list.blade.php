@@ -186,8 +186,13 @@
                                 </div>
                                 <p>{{$complaint_detail['complaint_text']}}</p>
                                 <div align="left"><b><i>
-                                           Post By {{$complaint_detail['user']->first_name." ".$complaint_detail['user']->last_name}}
-                                       </i></b></div>
+                                            Post By
+                                            @if($complaint_detail->create_by==1)
+                                                {{$complaint_detail['admin']->first_name." ".$complaint_detail['admin']->last_name}}
+                                            @else
+                                                {{$complaint_detail['user']->first_name." ".$complaint_detail['user']->last_name}}
+                                            @endif
+                                        </i></b></div>
                                 <div align="right">
                                     {{ time_ago($complaint_detail['created_at'])}}
                                 </div>
@@ -217,13 +222,15 @@
                                                     </li>
                                                 @endif
                                                 @if($response_detail->is_response==0)
-                                                    <li class="comment user-comment" style="margin-left: 135px; height: 66px">
-                                                        <div class="info" align="right"><a href="#">{{$response_detail->user['first_name']." ".$response_detail->user['last_name']}}</a>
+                                                    <li class="comment user-comment"
+                                                        style="margin-left: 135px; height: 66px">
+                                                        <div class="info" align="right"><a
+                                                                    href="#">{{$response_detail->user['first_name']." ".$response_detail->user['last_name']}}</a>
                                                             <span>{{ time_ago($response_detail->created_at)}}</span>
                                                         </div>
                                                         <img src="http://localhost-ast-23/Laravel%20Project/Laravel_blog/public/image/user-1.png"
-                                                                    onerror="this.src='http://localhost-ast-23/Laravel%20Project/Laravel_blog/public/image/user-icon.png'"
-                                                                    title="Hardik" width="35" height="50px" alt="Hardik"></a>
+                                                             onerror="this.src='http://localhost-ast-23/Laravel%20Project/Laravel_blog/public/image/user-icon.png'"
+                                                             title="Hardik" width="35" height="50px" alt="Hardik"></a>
                                                         <p style="background-color: rgb(226, 248, 255);"> {{$response_detail->response_text}}</p>
                                                     </li>
                                                 @endif
@@ -235,7 +242,8 @@
                                                     {{ csrf_field() }}
                                                     <input type="hidden" name="complaint_id"
                                                            value="{{$complaint_detail->complaints_id}}">
-                                                    <input type="hidden" name="user_id" value="{{Auth::guard('admin')->user()->id}}">
+                                                    <input type="hidden" name="user_id"
+                                                           value="{{Auth::guard('admin')->user()->id}}">
                                                     <textarea name="response_text" rows="3" cols="85"
                                                               required placeholder="Write your comment here"></textarea>
                                                     <div>
